@@ -1,0 +1,79 @@
+# =============================================================================
+# Configuration du projet P4_Classification_RH
+# =============================================================================
+
+project:
+  name: "P4_Classification_RH"
+  version: "0.1.0"
+  description: "Projet de classification RH utilisant le Machine Learning"
+
+# --- Chemins des données ---
+paths:
+  data:
+    raw: "data/raw"
+    processed: "data/processed"
+    interim: "data/interim"
+    external: "data/external"
+  models:
+    trained: "models/trained"
+    checkpoints: "models/checkpoints"
+  reports:
+    figures: "reports/figures"
+    metrics: "reports/metrics"
+  logs: "logs"
+
+# --- Configuration du preprocessing ---
+preprocessing:
+  # Colonnes cibles
+  target_column: "target"
+  
+  # Gestion des valeurs manquantes
+  missing_values:
+    strategy: "median"  # Options: mean, median, mode, drop
+    threshold: 0.3      # Supprimer colonnes avec > 30% de valeurs manquantes
+  
+  # Encodage des variables catégorielles
+  encoding:
+    method: "onehot"    # Options: onehot, label, target
+    
+  # Scaling
+  scaling:
+    method: "standard"  # Options: standard, minmax, robust
+
+# --- Configuration des modèles ---
+models:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+    
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    random_state: 42
+    
+  logistic_regression:
+    C: 1.0
+    max_iter: 1000
+    random_state: 42
+
+# --- Configuration de l'entraînement ---
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+  cross_validation:
+    n_splits: 5
+    shuffle: true
+
+# --- Configuration du logging ---
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/training.log"
+
+# --- MLflow (optionnel) ---
+mlflow:
+  tracking_uri: "mlruns"
+  experiment_name: "P4_Classification_RH"
