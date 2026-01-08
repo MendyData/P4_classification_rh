@@ -2,7 +2,7 @@
 
 Projet de classification RH utilisant le Machine Learning
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 p4_classification_rh/
@@ -37,7 +37,7 @@ p4_classification_rh/
     └── integration/      # Tests d'intégration
 ```
 
-## 🚀 Installation
+##  Installation
 
 ### Prérequis
 - Python >=3.11
@@ -64,7 +64,7 @@ poetry install
 poetry shell
 ```
 
-## 💻 Utilisation
+##  Utilisation
 
 ### Activer l'environnement
 ```bash
@@ -87,7 +87,7 @@ poetry run black src/
 poetry run isort src/
 ```
 
-## 📊 Workflow du Projet
+## Workflow du Projet
 
 1. **Exploration des données** : `notebooks/exploration/`
 2. **Prétraitement** : `src/data/` et `src/features/`
@@ -99,6 +99,6 @@ poetry run isort src/
 
 - **MendyData** - [mendy.data@gmail.com](mailto:mendy.data@gmail.com)
 
-## 📝 License
+## License
 
 Ce projet est sous licence MIT.
