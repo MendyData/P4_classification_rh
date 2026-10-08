@@ -6,6 +6,16 @@ Formation AI Engineer, OpenClassrooms. Auteure : Angèle GOMIS.
 
 ---
 
+Contexte et mission
+
+Consultante Data Scientist pour le département RH de TechNova Partners, une ESN spécialisée en transformation digitale qui fait face à un turnover élevé. Le directeur du SIRH veut savoir ce qui distingue les collaborateurs qui partent de ceux qui restent, avant d'envisager un dispositif de détection.
+
+Objectif métier:
+Identifier les facteurs qui distinguent partants et restants	---> Notebook 01, étape 1
+Construire un modèle qui estime la probabilité de départ	---> Notebook 02, étapes 3 à 5
+Extraire les causes potentielles de départ (SHAP) --->	Notebook 03, étape 5
+Fournir des leviers d'action aux RH	---> Notebook 03 (synthèse), src/application_metier.py, soutenance
+
 ## 1. Structure du projet
 
 ```text
