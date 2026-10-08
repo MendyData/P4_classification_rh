@@ -1,0 +1,96 @@
+# ---------------------------------------------------------------------------
+# Projet 4 - Prediction de l'attrition RH (TechNova Partners)
+# Configuration unique du projet, au format standard PEP 621, geree par uv.
+# ---------------------------------------------------------------------------
+
+[project]
+name = "p4-classification-rh"
+version = "0.2.0"
+description = "Prediction et interpretation de l'attrition RH de TechNova Partners"
+readme = "README.md"
+authors = [{ name = "Angele GOMIS" }]
+# Version testee : 3.11. La borne haute evite une version de Python
+# que certaines dependances compilees (shap, xgboost) ne supportent pas encore.
+requires-python = ">=3.11,<3.13"
+
+# Dependances necessaires pour executer les notebooks et le paquet src
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "pyarrow>=17.0",          # lecture et ecriture des fichiers .parquet
+    "scikit-learn>=1.6",
+    "imbalanced-learn>=0.13", # SMOTE, etape 4
+    "xgboost>=2.1",
+    "shap>=0.46",             # interpretation, etape 5
+    "joblib>=1.4",            # sauvegarde du modele
+    "matplotlib>=3.9",
+    "seaborn>=0.13.2",
+    "loguru>=0.7",            # journalisation des scripts de src
+]
+
+# Outils de developpement : installes par "uv sync", absents d'une installation en production
+[dependency-groups]
+dev = [
+    "jupyterlab>=4.2",
+    "ipykernel>=6.29",
+    "nbconvert>=7.16",        # execution des notebooks en ligne de commande
+    "black[jupyter]>=24.8",   # formatage du code, notebooks compris
+    "mypy>=1.11",
+    "pytest>=8.3",
+    # --- Ajouts repris de la configuration Poetry ---
+    "ipywidgets>=8.1.9",      # barres de progression de shap dans Jupyter (supprime l'avertissement tqdm)
+    "pre-commit>=4.6.2",      # execution des controles de .pre-commit-config.yaml avant chaque commit
+    "pytest-cov>=7.1.0",      # couverture de src, requise par l'option --cov de [tool.pytest.ini_options]
+    "isort>=9.0.2",           # tri des imports, cible "make format" du Makefile
+    "flake8>=7.4.1",          # analyse statique, cible "make lint" du Makefile
+]
+
+# Le dossier src est installe comme paquet : "from src import config"
+# fonctionne depuis n'importe quel dossier, notebooks compris.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+# ---------------------------------------------------------------------------
+# Configuration des outils
+# ---------------------------------------------------------------------------
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+# Repris de la configuration Poetry : black ignore les dossiers de donnees,
+# de modeles et de journaux, ainsi que l'environnement virtuel.
+extend-exclude = '''
+/(
+    data
+    | models
+    | logs
+)/
+'''
+
+# Repris de la configuration Poetry : tri des imports compatible avec black,
+# longueur de ligne alignee sur celle de black (100).
+[tool.isort]
+profile = "black"
+line_length = 100
+skip = [".git", ".venv", "__pycache__", "data", "models", "logs"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
+# Repris de la configuration Poetry : signale les fonctions typees qui
+# renvoient Any et les sections de configuration mypy inutilisees.
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Repris de la configuration Poetry : conventions de nommage des tests et
+# rapport de couverture de src (necessite pytest-cov).
+python_files = ["test_*.py", "*_test.py"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src --cov-report=term-missing"

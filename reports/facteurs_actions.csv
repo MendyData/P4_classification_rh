@@ -1,0 +1,16 @@
+variable,importance_shap,levier_rh,actionnable
+poste,0.7385218729830618,Parcours par metier : cibler les postes les plus exposes,True
+heure_supplementaires,0.662966687180243,Charge de travail : limiter et repartir les heures supplementaires,True
+nombre_experiences_precedentes,0.44016527845269016,Non actionnable : delimite la population a suivre,False
+satisfaction_minimale,0.39423204407291396,Suivi de la satisfaction : traiter le point de rupture de chaque collaborateur,True
+annee_experience_totale,0.36874622910336774,Non actionnable : delimite la population a suivre,False
+statut_marital,0.3364364855784784,Non actionnable : delimite la population a suivre,False
+annees_depuis_la_derniere_promotion,0.29642327143804753,Evolution de carriere et promotions,True
+frequence_deplacement,0.2932743222249088,Organisation du travail : limiter les deplacements frequents,True
+nouveau_responsable,0.27714958814370033,Stabilite du management : accompagner chaque changement de responsable,True
+distance_domicile_travail,0.270470919055246,Teletravail pour les trajets longs,True
+note_evaluation_precedente,0.25198500499453064,Non actionnable : delimite la population a suivre,False
+revenu_mensuel,0.22638821469982012,Remuneration : revoir les salaires des bas de grille,True
+satisfaction_employee_environnement,0.2263398519765239,Environnement de travail,True
+annees_dans_l_entreprise,0.2223398240498153,Non actionnable : delimite la population a suivre,False
+augementation_salaire_precedente,0.21503430159857798,Politique de revalorisation salariale,True

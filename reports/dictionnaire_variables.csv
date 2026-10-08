@@ -1,0 +1,35 @@
+nom,signification,type_attendu,unite,source
+id_employee,Identifiant unique du collaborateur,int64,identifiant,SIRH
+age,Age du collaborateur,int64,annees,SIRH
+genre,Genre declare du collaborateur,object,categorie (F/M),SIRH
+revenu_mensuel,Remuneration mensuelle brute,int64,euros,SIRH
+statut_marital,Situation familiale declaree,object,categorie,SIRH
+departement,Departement de rattachement,object,categorie,SIRH
+poste,Intitule de poste occupe,object,categorie,SIRH
+nombre_experiences_precedentes,Nombre d'employeurs precedents,int64,nombre,SIRH
+nombre_heures_travailless,"Duree hebdomadaire de travail contractuelle (intitule source, faute incluse)",int64,heures/semaine,SIRH
+annee_experience_totale,"Experience professionnelle totale, tous employeurs confondus",int64,annees,SIRH
+annees_dans_l_entreprise,Anciennete dans l'entreprise actuelle,int64,annees,SIRH
+annees_dans_le_poste_actuel,Anciennete sur le poste actuel,int64,annees,SIRH
+eval_number,"Identifiant de jointure vers le SIRH, format E_<id>",object -> int64,identifiant,Evaluations
+satisfaction_employee_environnement,Satisfaction declaree sur l'environnement de travail,int64,echelle 1-4 (a clarifier),Evaluations
+satisfaction_employee_nature_travail,Satisfaction declaree sur la nature des missions,int64,echelle 1-4 (a clarifier),Evaluations
+satisfaction_employee_equipe,Satisfaction declaree sur les relations d'equipe,int64,echelle 1-4 (a clarifier),Evaluations
+satisfaction_employee_equilibre_pro_perso,Satisfaction declaree sur l'equilibre vie professionnelle / vie personnelle,int64,echelle 1-4 (a clarifier),Evaluations
+note_evaluation_precedente,Note de la precedente evaluation annuelle,int64,echelle 1-4 (a clarifier),Evaluations
+note_evaluation_actuelle,Note de l'evaluation annuelle en cours,int64,echelle (a clarifier),Evaluations
+niveau_hierarchique_poste,Niveau hierarchique du poste occupe,int64,echelle 1-5 (a clarifier),Evaluations
+heure_supplementaires,Le collaborateur effectue-t-il des heures supplementaires,object,categorie (Oui/Non),Evaluations
+augementation_salaire_precedente,"Taux d'augmentation de la derniere revalorisation salariale (intitule source, faute incluse)",object -> int64,pourcentage,Evaluations
+code_sondage,Identifiant de jointure vers le SIRH,int64,identifiant,Sondage
+a_quitte_l_entreprise,Le collaborateur a-t-il quitte l'entreprise (cible),object,categorie (Oui/Non),Sondage
+nombre_participation_pee,Nombre de participations au plan d'epargne entreprise,int64,nombre,Sondage
+nb_formations_suivies,Nombre de formations suivies sur la derniere periode,int64,nombre,Sondage
+nombre_employee_sous_responsabilite,Nombre de collaborateurs encadres,int64,nombre,Sondage
+distance_domicile_travail,Distance entre le domicile et le lieu de travail,int64,kilometres,Sondage
+niveau_education,Niveau d'etudes atteint,int64,echelle 1-5 (a clarifier),Sondage
+domaine_etude,Domaine d'etudes suivi,object,categorie,Sondage
+ayant_enfants,Le collaborateur a-t-il des enfants a charge,object,categorie,Sondage
+frequence_deplacement,Frequence des deplacements professionnels,object,categorie ordonnee,Sondage
+annees_depuis_la_derniere_promotion,Temps ecoule depuis la derniere promotion,int64,annees,Sondage
+annes_sous_responsable_actuel,"Temps passe sous le responsable actuel (intitule source, faute incluse)",int64,annees,Sondage
