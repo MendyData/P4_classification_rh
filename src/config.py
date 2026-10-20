@@ -24,8 +24,6 @@ DOSSIER_DONNEES_TRAITEES: Path = RACINE_PROJET / "data" / "processed"
 FICHIER_X = DOSSIER_DONNEES_TRAITEES / "X.parquet"
 # Cible binaire : 1 = depart, 0 = reste
 FICHIER_Y = DOSSIER_DONNEES_TRAITEES / "y.parquet"
-# Features de X completees par les trois features metier de l'etape 4
-FICHIER_X_ENRICHI = DOSSIER_DONNEES_TRAITEES / "X_enrichi.parquet"
 
 DOSSIER_MODELES: Path = RACINE_PROJET / "models"
 DOSSIER_RAPPORTS: Path = RACINE_PROJET / "reports"
@@ -43,7 +41,6 @@ ENCODAGE_SOURCE: str = "utf-8"
 # autorisée entre eux, aucune variable en mémoire n'est partagée.
 FICHIER_CONSOLIDE: Path = DOSSIER_DONNEES_INTERMEDIAIRES / "consolide.parquet"
 FICHIER_DICTIONNAIRE_VARIABLES: Path = DOSSIER_RAPPORTS / "dictionnaire_variables.csv"
-FICHIER_TESTS_BIVARIES: Path = DOSSIER_RAPPORTS / "tests_bivaries.csv"
 FICHIER_SPLIT_INDICES: Path = DOSSIER_DONNEES_TRAITEES / "split_indices.json"
 FICHIER_MODELE_FINAL: Path = DOSSIER_MODELES / "modele_final.joblib"
 FICHIER_METADONNEES_MODELE: Path = DOSSIER_MODELES / "metadonnees_modele.json"
